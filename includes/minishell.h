@@ -12,6 +12,5 @@
 
 #pragma once
 
-// FT_ECHO
-int		is_n_option(const char *arg);
-void	ft_echo(char **argv);
+#include <stdio.h>
+#include "builtins.h"

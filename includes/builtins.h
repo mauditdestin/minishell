@@ -20,3 +20,6 @@ int		is_n_option(const char *arg);
 
 // ft_pwd
 void	ft_pwd(char **envp);
+
+// ft_env
+void	ft_env(char **envp);

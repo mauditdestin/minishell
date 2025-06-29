@@ -14,3 +14,8 @@
 
 #include <stdio.h>
 #include "builtins.h"
+
+typedef struct s_shell
+{
+	/* data */
+}	t_shell;

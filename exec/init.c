@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 16:52:08 by pleblond          #+#    #+#             */
-/*   Updated: 2025/06/26 16:52:08 by pleblond         ###   ########.fr       */
+/*   Created: 2025/06/30 11:54:16 by pleblond          #+#    #+#             */
+/*   Updated: 2025/06/30 11:54:16 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "minishell.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "builtins.h"
+t_shell *shell(char **envp)
+{
+	t_shell *shell;
 
-typedef struct s_cmd
-{
-	char	**cmd;
-}	t_cmd;
-typedef struct s_shell
-{
-	char	**envp;
-	t_cmd	*cmd;
-	int		exit_code;
-}	t_shell;
+	shell = malloc(sizeof(t_shell));
+	if (!shell)
+	{
+		ft_putstr_fd("Error allocation shell structure.", 2);
+		exit(EXIT_FAILURE);
+	}
+	shell->envp = envp;
+	shell->cmd = NULL;
+	shell->exit_code = 0;
+	return (shell);
+}
